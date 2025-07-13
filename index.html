@@ -232,10 +232,13 @@
                 Given multi-view images of a 3D object, Gemma3 generates natural language affordance queries via chain-of-thought prompting, conditioned on rendered views.
               </li>
               <li><strong>Stage 2. Language-guided interaction point prediction</strong>: 
-            Molmo grounds each query to pixel-level interaction points across views, identifying likely regions of human-object interaction.
+                Molmo-predicted points are used as prompts for SAM to generate 2D masks, which are projected and aggregated via voting across views to form 3D affordance heatmaps.
               </li>
               <li><strong>Stage 3. Affordance heatmap generation and aggregation</strong>: 
-                SAM segments interaction regions, which are projected and aggregated across views to produce consistent 3D affordance heatmaps.
+                Based on Molmo-predicted points, we use SAM to generate segmentation masks, which are aggregated across views into 3D affordance heatmaps via projection and voting.
+              </li>
+              <li><strong>Rendering 2D affordance heatmaps</strong>: 
+                We project the aggregated 3D affordance heatmaps onto 2D image planes to obtain consistent and accurate 2D affordance heatmaps. The resulting 2D data is used to train a 2D affordance grounding model.
               </li>
             </ul>
           
@@ -249,11 +252,11 @@
       <h2 class="title is-3">Dataset Analysis</h2>
       <ul>
         <li>
-          <strong>Semantic Breadth of Object Classes and Affordance Queries</strong> : Affogato provides a large and diverse open-vocabulary dataset with over 150K 3D object instances and 750K affordance query–heatmap pairs. 
+          <strong>Semantic breadth of object classes and affordance queries</strong> : Affogato provides a large and diverse open-vocabulary dataset with over 150K 3D object instances and 750K affordance query–heatmap pairs. 
         </li>
       
         <li>
-          <p><strong>High Coverage and Diversity of Affordance Annotations</strong> : Our heatmaps capture a wide range of interaction patterns—from fine-grained point interactions 
+          <p><strong>High coverage and diversity of affordance annotations</strong> : Our heatmaps capture a wide range of interaction patterns—from fine-grained point interactions 
           (e.g., pressing a button) to broad surface-level actions (e.g., holding). In terms of both diversity and coverage, Affogato demonstrates significantly stronger performance than existing datasets.</p>
           </p>
           <div class="columns is-centered is-mobile">
@@ -262,7 +265,7 @@
               <figure class="image" style="height: 120px; display: flex; align-items: center; justify-content: center;">
                 <img src="./static/images/diversity.jpg" alt="Diverse annotations" style="max-height: 100%; max-width: 100%;">
               </figure>
-              <p class="is-size-7 mt-0">Diverse Annotations</p>
+              <p class="is-size-7 mt-0">Diverse annotations</p>
             </div>
 
             <!-- Right Column -->
@@ -276,7 +279,7 @@
         </li>
 
         <li>
-          <strong>Comparison with Prior Datasets</strong> : Affogato overcomes key limitations of prior 3D affordance datasets—such as annotation mismatch, incomplete heatmap coverage and insufficient data resolution-by generating dense, semantically aligned heatmaps through an automated pipeline.
+          <strong>Comparison with prior datasets</strong> : Affogato overcomes key limitations of prior 3D affordance datasets—such as annotation mismatch, incomplete heatmap coverage and insufficient data resolution-by generating dense, semantically aligned heatmaps through an automated pipeline.
         </li>
       </ul>
       
@@ -327,7 +330,7 @@
                alt="Cross-dataset generalization" 
                style="max-width: 100%; height: auto;">
           <p class="is-size-6 mt-2" style="color: #555;">
-            Training on Affogato leads to significantly better cross-dataset generalization, <br>highlighting its robustness and reduced overfitting due to greater scale and diversity.
+            Training on Affogato leads to significantly better cross-dataset generalization due to greater scale and diversity.
           </p>
         </figure>
         
@@ -357,7 +360,7 @@
           </div>
         
           <figcaption class="is-size-6 mt-3" style="color: #555;">
-            Pre-training on the 2D rendered Affogato dataset significantly improves performance on AGD20K, demonstrating strong zero-shot and fine-tuned generalization despite the domain gap.
+            Pre-training on the 2D rendered Affogato dataset significantly improves performance on AGD20K, <br> demonstrating strong zero-shot and fine-tuned generalization despite the domain gap.
           </figcaption>
         </figure>
 
