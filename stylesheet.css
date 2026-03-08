@@ -222,3 +222,29 @@ span.highlight {
 .pub-links {
   margin-top: 4px;
 }
+
+@media (max-width: 600px) {
+  .bio-table,
+  .bio-table tbody,
+  .bio-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .bio-table td {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2.5%;
+  }
+
+  .bio-table td:first-child {
+    text-align: center;
+    padding-bottom: 0;
+  }
+
+  .bio-table td:first-child img {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+}
