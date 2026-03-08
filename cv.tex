@@ -1,0 +1,136 @@
+%% Eunha Park — Curriculum Vitae
+%% Style modeled after Dongwon Kim's CV (cv (1).pdf)
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[margin=1in, top=0.8in, bottom=0.8in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+%% Section style: small-caps heading + full-width rule below
+\titleformat{\section}
+  {\sc\large}{}{0em}{}[\vspace{-6pt}\rule{\textwidth}{0.4pt}]
+\titlespacing{\section}{0pt}{14pt}{6pt}
+
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+%% Helper: institution + location / degree + date rows
+\newcommand{\entrytitle}[2]{%
+  \textbf{#1} \hfill #2 \\}
+\newcommand{\entrysub}[2]{%
+  \textit{#1} \hfill #2}
+
+\begin{document}
+
+%% ── HEADER ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\Huge Eunha Park}\\[4pt]
+  \faEnvelope\ \href{mailto:dmsgk724@postech.ac.kr}{dmsgk724@postech.ac.kr}
+  \quad|\quad
+  \faGlobe\ \href{https://dmsgk724.github.io}{https://dmsgk724.github.io}\\[2pt]
+  Cheongam-Ro 77, POSTECH, Pohang-Si, South Korea (37673)
+\end{center}
+
+\vspace{6pt}
+
+%% ── RESEARCH OBJECTIVE ──────────────────────────────────────────────────────
+\section{Research Objective}
+
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=1pt]
+  \item[] My research focuses on robotics and multimodal understanding,
+          with the goal of enabling machines to perceive, reason, and interact
+          with the physical world through language-grounded 3D representations.
+\end{itemize}
+
+%% ── EDUCATION ───────────────────────────────────────────────────────────────
+\section{Education}
+
+\entrytitle{POSTECH}{Pohang, South Korea}
+\entrysub{Integrated M.S./Ph.D. in Computer Science and Engineering}{Sep 2024 -- Present}
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, itemsep=1pt]
+  \item Supervised by \href{http://cvlab.postech.ac.kr/~mcho/}{Prof.\ Minsu Cho}
+        in the \href{http://cvlab.postech.ac.kr/}{Computer Vision Lab}.
+  \item Research interest: Robotics, dexterous manipulation, multimodal learning
+  \item Cumulative GPA: 4.05 / 4.3
+\end{itemize}
+
+\vspace{6pt}
+\entrytitle{Technical University of Graz (TU Graz)}{Graz, Austria}
+\entrysub{Exchange Student}{Sep 2023 -- Feb 2024}
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, itemsep=1pt]
+  \item Average Grade: 1.29 \quad(1=Excellent $\sim$ 5=Fail)
+  \item Courses: Data Integration and Large-Scale Analysis, Information Security
+\end{itemize}
+
+\vspace{6pt}
+\entrytitle{POSTECH}{Pohang, South Korea}
+\entrysub{B.S. in Computer Science and Engineering}{Mar 2020 -- Aug 2025}
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, itemsep=1pt]
+  \item Cumulative GPA: 3.89 / 4.3
+\end{itemize}
+
+%% ── WORK EXPERIENCE ─────────────────────────────────────────────────────────
+\section{Work Experience}
+
+\entrytitle{Samsung Research, Samsung Electronics}{Seoul, South Korea}
+\entrysub{Engineering Intern}{Jul 2022 -- Sep 2022}
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, itemsep=1pt]
+  \item Accelerated machine learning applications for communication technologies
+\end{itemize}
+
+%% ── PUBLICATIONS ────────────────────────────────────────────────────────────
+\section{Publications}
+
+\begin{enumerate}[leftmargin=*, topsep=4pt, itemsep=8pt, label={[\arabic*]}]
+
+  \item \textbf{\textit{DextER: Language-driven Dexterous Grasp Generation with Embodied Reasoning}}
+        $|$ \href{https://arxiv.org/pdf/2601.16046}{arXiv}\\
+        Junha Lee, \textbf{Eunha Park}, Minsu Cho\\
+        IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), Jun 2026
+
+  \item \textbf{\textit{Affogato: Learning Open-Vocabulary Affordance Grounding with Automated Data Generation at Scale}}
+        $|$ \href{https://arxiv.org/abs/2506.12009}{arXiv}\\
+        Junha Lee$^*$, \textbf{Eunha Park}$^*$, Chunghyun Park, Dahyun Kang, Minsu Cho\\
+        arXiv preprint, 2025\\
+        {\small $^*$ Equal contribution}
+
+\end{enumerate}
+
+%% ── HONORS & AWARDS ─────────────────────────────────────────────────────────
+\section{Honors \& Awards}
+
+\textbf{IPIU Outstanding Poster Presentation Award}, \hfill 2026
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=0pt]
+  \item DextER: Language-driven Dexterous Grasp Generation with Embodied Reasoning (CVPR 2026)
+\end{itemize}
+
+\vspace{4pt}
+\textbf{OK Scholarship}, OK Bae and Jung Scholarship Foundation. Seoul, S. Korea \hfill 2025, 2026
+
+\vspace{4pt}
+\textbf{Mirae Asset Foundation Scholarship}, MiraeAsset Park Hyeon Joo Foundation. Seoul, S. Korea \hfill 2023
+
+\vspace{4pt}
+\textbf{Academic Excellence Scholarship}, POSTECH. Pohang, S. Korea \hfill 2021, 2022
+
+\vspace{4pt}
+\textbf{Jigok Scholarship}, POSTECH. Pohang, S. Korea \hfill 2020--2024
+
+%% ── TEACHING ────────────────────────────────────────────────────────────────
+\section{Teaching}
+
+\textbf{Teaching Assistant}, POSTECH
+\begin{itemize}[leftmargin=1.5em, topsep=3pt, itemsep=1pt]
+  \item CSED341, Automata and Formal Languages (Fall 2025)
+  \item CSED261, Discrete Mathematics (Spring 2025)
+\end{itemize}
+
+\end{document}

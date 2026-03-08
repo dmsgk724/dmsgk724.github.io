@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
   </head>
@@ -34,7 +34,10 @@
         <td style="padding:0px">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <td style="padding:2.5%;width:30%;max-width:30%;vertical-align:top;padding-top:calc(2.5% + 20px)">
+                <a href="images/profile_photo.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 12px;" alt="profile photo" src="images/profile_photo.jpg" class="hoverZoomLink"></a>
+              </td>
+              <td style="padding:2.5%;width:63%;vertical-align:top">
                 <p class="name" style="text-align: left;">
                   Eunha Park
                 </p>
@@ -44,13 +47,10 @@
                 </p>
                 <p style="text-align:left">
                   <a href="mailto:dmsgk724@postech.ac.kr">Email</a> &nbsp;/&nbsp;
-                  <a href="">CV</a> &nbsp;/&nbsp;
+                  <a href="files/cv_eunhapark.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com/citations?user=3XWcH2MAAAAJ&hl=ko">Google Scholar</a> &nbsp;/&nbsp;
                   <a href="https://github.com/dmsgk724">GitHub</a>
                 </p>
-              </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/profile_photo.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/profile_photo.jpg" class="hoverZoomLink"></a>
               </td>
             </tr>
           </tbody></table>
@@ -80,61 +80,41 @@
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <div style="padding:0 16px;">
 
-    <tr>
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <img src='images/dexter.png' width=100%>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="#">
-          <span class="papertitle">DextER: Language-driven Dexterous Grasp Generation with Embodied Reasoning</span>
-        </a>
-        <br>
-        Junha Lee,
-        <strong>Eunha Park</strong>,
-        Minsu Cho
-        <br>
-        <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2026
-        <br>
-        <a href="https://junha-l.github.io/dexter/" target="_blank" rel="noopener noreferrer">project page</a>
-        /
-        <a href="https://arxiv.org/pdf/2601.16046" target="_blank" rel="noopener noreferrer">arXiv</a>
-        <p></p>
-        <p>
-        Language-driven dexterous grasp generation with embodied reasoning.
-        </p>
-      </td>
-    </tr>
+            <div class="pub-row">
+              <div class="pub-img">
+                <a href="images/dexter.png"><img src="images/dexter.png" alt="DextER"></a>
+              </div>
+              <div class="pub-content">
+                <div class="pub-title">DextER: Language-driven Dexterous Grasp Generation with Embodied Reasoning</div>
+                <div class="pub-authors">Junha Lee, <strong>Eunha Park</strong>, Minsu Cho</div>
+                <div class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2026</div>
+                <div class="pub-links">
+                  <a href="https://junha-l.github.io/dexter/" target="_blank" rel="noopener noreferrer">project page</a>
+                  /
+                  <a href="https://arxiv.org/pdf/2601.16046" target="_blank" rel="noopener noreferrer">arXiv</a>
+                </div>
+              </div>
+            </div>
 
-    <tr>
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <img src='images/Affogato.jpg' width=100%>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="#">
-          <span class="papertitle">Affogato: Learning Open-Vocabulary Affordance Grounding with Automated Data Generation at Scale</span>
-        </a>
-        <br>
-        Junha Lee*,
-        <strong>Eunha Park*</strong>,
-        Chunghyun Park,
-        Dahyun Kang,
-        Minsu Cho
-        <br>
-        <em>Preprint</em>, 2025
-        <br>
-        <a href="https://junha-l.github.io/affogato/" target="_blank" rel="noopener noreferrer">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2506.12009" target="_blank" rel="noopener noreferrer">arXiv</a>
-        <p></p>
-        <p>
-        Learning open-vocabulary affordance grounding with automated data generation at scale.
-        </p>
-      </td>
-    </tr>
+            <div class="pub-row">
+              <div class="pub-img">
+                <a href="images/Affogato.jpg"><img src="images/Affogato.jpg" alt="Affogato"></a>
+              </div>
+              <div class="pub-content">
+                <div class="pub-title">Affogato: Learning Open-Vocabulary Affordance Grounding with Automated Data Generation at Scale</div>
+                <div class="pub-authors">Junha Lee*, <strong>Eunha Park*</strong>, Chunghyun Park, Dahyun Kang, Minsu Cho</div>
+                <div class="pub-venue"><em>Preprint</em>, 2025 &nbsp;<small>(* Equal contribution)</small></div>
+                <div class="pub-links">
+                  <a href="https://junha-l.github.io/affogato/" target="_blank" rel="noopener noreferrer">project page</a>
+                  /
+                  <a href="https://arxiv.org/abs/2506.12009" target="_blank" rel="noopener noreferrer">arXiv</a>
+                </div>
+              </div>
+            </div>
 
-          </tbody></table>
+          </div>
           
 					<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
             <tr>
@@ -163,7 +143,7 @@
 
                   <li class="timeline-item">
                     <p><strong>Pohang University of Science and Technology (POSTECH)</strong> - Pohang, S. Korea<br>
-                    B.S. in Computer Science and Engineering, Mar. 2020 - Aug. 2025<br>
+                    B.S. in Computer Science and Engineering, Mar. 2020 - Aug. 2024<br>
                     • Cumulative GPA: 3.89 / 4.3</p>
                   </li>
                 </ul>
