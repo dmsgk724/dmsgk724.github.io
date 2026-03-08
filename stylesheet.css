@@ -224,6 +224,17 @@ span.highlight {
 }
 
 @media (max-width: 600px) {
+  .pub-row {
+    flex-direction: column;
+  }
+
+  .pub-img {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+
   .bio-table,
   .bio-table tbody,
   .bio-table tr {
