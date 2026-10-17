@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Gallery | Eunha Park</title>
+    <meta name="author" content="Eunha Park">
+    <meta name="description" content="Photo gallery — life around research: conferences, lab, and travel.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    <!-- set theme before paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!-- ============================ NAV ============================ -->
+    <header class="top" id="top">
+      <div class="wrap">
+        <nav class="nav">
+          <a class="brand" href="index.html">Eunha Park</a>
+          <div class="nav-links">
+            <a href="index.html#news">News</a>
+            <a href="index.html#publications">Publications</a>
+            <a href="gallery.html" aria-current="page">Gallery</a>
+            <a href="files/cv_eunhapark.pdf">CV</a>
+          </div>
+          <div class="theme">
+            <button id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+              <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+              <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!--
+        GALLERY: replace the placeholder images in images/gallery/ with your own
+        photos (jpg/png/webp). Keep the <figcaption> short. Add or remove <figure>
+        blocks freely — the masonry layout reflows automatically.
+      -->
+      <section class="section wrap" id="gallery" style="padding-top:88px;">
+        <div class="section-head">
+          <h2>Gallery</h2>
+          <span class="hint">Life around research &mdash; conferences, lab, and travel</span>
+        </div>
+        <div class="gallery" id="galleryGrid">
+          <figure><img src="images/gallery/photo3.jpg" alt="Presenting AffoGato at ECCV 2026" data-cap="AffoGato @ ECCV 2026, Malmö" loading="lazy"><figcaption>AffoGato @ ECCV 2026</figcaption></figure>
+          <figure><img src="images/gallery/photo2.jpg" alt="Presenting DextER at CVPR 2026" data-cap="DextER @ CVPR 2026, Denver" loading="lazy"><figcaption>DextER @ CVPR 2026</figcaption></figure>
+          <figure><img src="images/gallery/photo4.jpg" alt="Tree-lined avenue in Malmö" data-cap="Malmö, Sweden" loading="lazy"><figcaption>Malmö, Sweden</figcaption></figure>
+          <figure><img src="images/gallery/photo1.jpg" alt="Red Rocks Amphitheatre near Denver" data-cap="Red Rocks, Denver" loading="lazy"><figcaption>Red Rocks, Denver</figcaption></figure>
+        </div>
+        <p style="margin-top:28px;">
+          <a href="index.html" class="back-link">&larr; Back to home</a>
+        </p>
+      </section>
+
+      <footer class="foot wrap">
+        <p>&copy; <span id="year">2026</span> Eunha Park</p>
+      </footer>
+    </main>
+
+    <!-- lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+      <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+      <img id="lbImg" src="" alt="">
+      <div class="lb-cap" id="lbCap"></div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // theme toggle
+      (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById("themeToggle");
+        function current() {
+          var set = root.getAttribute("data-theme");
+          if (set) return set;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        btn.addEventListener("click", function () {
+          var next = current() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try { localStorage.setItem("theme", next); } catch (e) {}
+        });
+      })();
+
+      // nav border on scroll
+      (function () {
+        var top = document.getElementById("top");
+        function onScroll() { top.classList.toggle("scrolled", window.scrollY > 8); }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      // gallery lightbox
+      (function () {
+        var lb = document.getElementById("lightbox");
+        var lbImg = document.getElementById("lbImg");
+        var lbCap = document.getElementById("lbCap");
+        var grid = document.getElementById("galleryGrid");
+        function open(src, cap) {
+          lbImg.src = src; lbImg.alt = cap || ""; lbCap.textContent = cap || "";
+          lb.classList.add("open"); document.body.style.overflow = "hidden";
+        }
+        function close() { lb.classList.remove("open"); lbImg.src = ""; document.body.style.overflow = ""; }
+        grid.addEventListener("click", function (e) {
+          var img = e.target.closest("img");
+          if (!img) return;
+          open(img.getAttribute("src"), img.getAttribute("data-cap") || img.alt);
+        });
+        document.getElementById("lbClose").addEventListener("click", close);
+        lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+      })();
+    </script>
+  </body>
+</html>
